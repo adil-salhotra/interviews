@@ -1,5 +1,3 @@
-from ast import main
-
 
 def fibonacci(n):
     if n <= 2:
