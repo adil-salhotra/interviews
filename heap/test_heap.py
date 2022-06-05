@@ -49,8 +49,6 @@ def test_increase_capacity(lib_heap):
     actual_heap.increase_capacity(actual_heap.capacity + 1)
     assert actual_heap.capacity == len(lib_heap) + 1
 
-# TODO: Add Max Heap Tests
-
 
 
 
