@@ -15,11 +15,11 @@ def how_sum(target_sum, numbers):
     if target_sum < 0:
         return None
     
-    for num in numbers:
-        remainder = target_sum - num
+    for number in numbers:
+        remainder = target_sum - number
         remainder_result = how_sum(remainder, numbers)
         if remainder_result is not None:
-            remainder_result.append(num)
+            remainder_result.append(number)
             return remainder_result
 
 def how_sum_memo(target_sum, numbers, memo):
@@ -32,11 +32,11 @@ def how_sum_memo(target_sum, numbers, memo):
     if target_sum < 0:
         return None
     
-    for num in numbers:
-        remainder = target_sum - num
+    for number in numbers:
+        remainder = target_sum - number
         remainder_result = how_sum_memo(remainder, numbers, memo) 
         if remainder_result is not None:
-            remainder_result.append(num)
+            remainder_result.append(number)
             memo[target_sum] = remainder_result
             return memo[target_sum]
 
