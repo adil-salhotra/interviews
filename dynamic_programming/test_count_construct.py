@@ -1,4 +1,5 @@
 from count_construct import count_construct, count_construct_memo
+
 def test_0():
     assert(count_construct('abcdef', ['ab', 'abc', 'cd', 'def', 'abcd']) == 1)
 
