@@ -38,9 +38,8 @@ def can_construct(target, word_bank):
         return True
     
     for word in word_bank:
-        if word in target:
-            if target.index(word) == 0:
-                new_target = target.replace(word, '')
+        if target.find(word) == 0:
+                new_target = target[len(word):]
                 if can_construct(new_target, word_bank):
                     return True
 
@@ -60,12 +59,12 @@ def can_construct_memo(target, word_bank, memo=dict()):
         return True
 
     for word in word_bank:
-        if word in target:
-            if target.index(word) == 0:
-                new_target = target.replace(word, '')
-                memo[target] = can_construct(new_target, word_bank)
-                if memo[target]:
-                    return True
+        if target.find(word) == 0:
+             # using list comprehensions, ie. new_target = target[len(word):], causes the code to hang.
+            new_target = target.replace(word, '')
+            memo[target] = can_construct(new_target, word_bank)
+            if memo[target]:
+                return True
 
     return False
 
