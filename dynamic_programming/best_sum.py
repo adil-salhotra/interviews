@@ -10,6 +10,11 @@ one of the shortest.
 """
 
 def best_sum(target_sum, numbers):
+    """
+    n = len(numbers)
+    m = target_sum
+    Total Run Time complexity: O(n^m * m)
+    """
     if target_sum == 0:
         return list()
     if target_sum < 0:
@@ -28,7 +33,12 @@ def best_sum(target_sum, numbers):
     
     return shortest_combo
 
-def best_sum_memo(target_sum, numbers, memo=dict()):     
+def best_sum_memo(target_sum, numbers, memo=dict()):
+    """
+    n = len(numbers)
+    m = target_sum
+    O(m * n * m) = O(m^2 * n)
+    """
     if target_sum in memo:
         return memo[target_sum]
     if target_sum == 0:

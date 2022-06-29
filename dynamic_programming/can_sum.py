@@ -11,6 +11,8 @@ You may assume that all input numbers are non-negative.
 
 def can_sum(target, numbers):
     """
+    n = len(numbers)
+    m = target
     Can_sum without memoization. Has a time complexity of O(n^m)
     time complexity. O(m) space.
     """
