@@ -11,7 +11,7 @@ def permute(nums):
 
     num = nums.pop(0)
 
-    for index in range(len(nums)):
+    for _ in range(len(nums)):
         perms = permute(nums)
 
         for perm in perms:
