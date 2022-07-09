@@ -5,6 +5,12 @@ import random
 import pytest
 import os
 
+"""
+TO RUN THIS FILE USING PYTEST:
+pytest -s -k linked_list
+in the terminal.
+"""
+
 
 BORDER = os.get_terminal_size().columns * '-'
 @pytest.fixture
@@ -39,8 +45,6 @@ def test_0(generated_input):
         assert value == curr.val
         curr = curr.next
 
-    
-
     reversed_head = reverse(list_0.head)
     list_1 = LinkedList(reversed_head)
 
@@ -48,7 +52,6 @@ def test_0(generated_input):
     for value in generated_input[::-1]:
         assert value == curr.val
         curr = curr.next
-
     
 def test_1(generated_input):
     list_0 = LinkedList.create_from_iter(generated_input)
@@ -63,7 +66,6 @@ def test_1(generated_input):
     for value in generated_input[::-1]:
         assert value == curr_reversed.val
         curr_reversed = curr_reversed.next
-
 
 def test_remove_second_from_end(generated_input):
     print()
