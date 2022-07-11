@@ -9,7 +9,10 @@ class ListNode:
 
 class LinkedList:
     def __init__(self, head):
-        self.head = head
+        if isinstance(head, ListNode):
+            self.head = head
+        else:
+            self.head = ListNode(head)
         
     @classmethod
     def create_from_iter(cls, values=list()) -> ListNode:

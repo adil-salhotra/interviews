@@ -1,6 +1,7 @@
 from base import LinkedList, ListNode
 from reverse_linked_list import reverse
 from remove_nth_node_from_end import remove
+from reorder_list import find_middle
 import random
 import pytest
 import os
@@ -96,7 +97,7 @@ def test_remove_last(generated_input):
 
 def test_remove_first(generated_input):
     print()
-    print("TEST REMOVE first")
+    print("TEST REMOVE FIRST")
     print(BORDER)
     print(f'Original Input:  {generated_input}')
 
@@ -107,6 +108,11 @@ def test_remove_first(generated_input):
     print()
     list_1 = LinkedList(new_list_head)
     print(list_1)
+
+def test_find_middle(generated_input):
+    list_0 = LinkedList.create_from_iter(generated_input)
+    middle = find_middle(list_0.head)
+    assert middle.val == generated_input[len(generated_input) // 2]
 
 
 
