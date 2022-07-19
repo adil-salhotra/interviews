@@ -9,23 +9,28 @@ class Tree:
         self.root = root
     def __repr__(self) -> str:
         def level_order(root):
+            if not root:
+                return list()
+            
             q = [root]
             level = 0
-            output = list()
-
+            levels = list()
+            
             while q:
-                output.append(list())
-                size_of_level = len(q)
-                for _ in range(size_of_level):
+                
+                levels.append(list())
+                level_len = len(q)
+                
+                for _ in range(level_len):
                     node = q.pop(0)
                     if node:
-                        output[level].append(node.val)
+                        levels[level].append(node.val)
                         if node.left:
                             q.append(node.left)
                         if node.right:
                             q.append(node.right)
                 level += 1
-            return output
+            return levels
 
             
         return str(level_order(self.root))
