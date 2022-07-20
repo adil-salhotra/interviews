@@ -29,7 +29,7 @@ def can_sum(target, numbers):
     return False
 
 
-def can_sum_memo(target, numbers, memo):
+def can_sum_memo(target, numbers, memo=dict()):
     """
     Memoized can_sum. Time complexity of O(m * n). O(m) space.
     """
@@ -47,3 +47,27 @@ def can_sum_memo(target, numbers, memo):
             return True
 
     return False
+
+def can_sum_tab(target, numbers):
+    """
+    Tabulated can_sum. Time complexity of O(m * n). O(m) space.
+    """
+    table = [False] * (target + 1)
+    table[0] = True
+
+    # for number in numbers:
+    #     if number <= target:
+    #         table[number] = True
+    
+    for index in range(target+1):
+        if table[index]:
+            for number in numbers:
+                if index+number < target+1:
+                    table[index+number] = True
+    
+    return table[target]
+
+    
+    
+
+
