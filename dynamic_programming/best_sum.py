@@ -59,3 +59,16 @@ def best_sum_memo(target_sum, numbers, memo=dict()):
     memo[target_sum] = shortest_combo
     
     return shortest_combo
+
+def best_sum_tab(target_sum, numbers):
+    table = [None] * (target_sum + 1)
+    table[0] = []
+    for index in range(target_sum + 1):
+        if table[index] != None:
+            for number in numbers:
+                combo = table[index][:] + [number]
+                if index + number < target_sum + 1:
+                    if not table[index+number] or len(table[index + number]) > len(combo):
+                        table[index + number] = combo
+    
+    return table[target_sum]

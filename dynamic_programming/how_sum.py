@@ -42,4 +42,20 @@ def how_sum_memo(target_sum, numbers, memo):
 
     memo[target_sum] = None
     return 
+
+def how_sum_tab(target_sum, numbers):
+    table = [None] * (target_sum+1)
+    table[0]=[]
+
+    for index in range(target_sum+1):
+        if table[index] != None:
+            for number in numbers:
+                if index + number < target_sum+1:
+                    table[index + number] = table[index][:] + [number]
+    
+    return table[target_sum]
+             
+
+
+
     
