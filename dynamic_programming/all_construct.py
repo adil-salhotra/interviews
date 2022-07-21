@@ -51,4 +51,19 @@ def all_construct_memo(target, word_bank, memo=dict()):
     
     memo[target] = output
     return output
-        
+
+def all_construct_tab(target, word_bank):
+    length = len(target)
+    table = [[] for _ in range(length + 1)]
+    table[0] = [[]]
+
+    for index in range(length+1):
+        if table[index] is not None:
+            for word in word_bank:
+                offset = len(word)
+                if word == target[index:index+offset]:
+                    ways = [[*way,word] for way in table[index]]
+                    table[index+len(word)].extend(ways)
+                    # table[index+offset] = table[index][:] + [word]
+    
+    return table[-1]

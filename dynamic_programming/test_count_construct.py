@@ -1,4 +1,4 @@
-from count_construct import count_construct, count_construct_memo
+from count_construct import count_construct, count_construct_memo, count_construct_tab
 
 def test_0():
     assert(count_construct('abcdef', ['ab', 'abc', 'cd', 'def', 'abcd']) == 1)
@@ -24,6 +24,29 @@ def test_3():
     )
     assert(
         count_construct(
+            'enterapotentpot', 
+            ['a', 'p', 'ent', 'enter', 'ot', 'o', 't']
+        ) == 
+        count_construct_memo(
+            'enterapotentpot', 
+            ['a', 'p', 'ent', 'enter', 'ot', 'o', 't'],
+            dict()
+        )
+
+    )
+
+def test_4():
+    assert(count_construct_tab('abcdef', ['ab', 'abc', 'cd', 'def', 'abcd']) == 1)
+
+def test_5():
+    assert(
+        count_construct_tab(
+            'enterapotentpot', 
+            ['a', 'p', 'ent', 'enter', 'ot', 'o', 't']
+        ) == 4
+    )
+    assert(
+        count_construct_tab(
             'enterapotentpot', 
             ['a', 'p', 'ent', 'enter', 'ot', 'o', 't']
         ) == 

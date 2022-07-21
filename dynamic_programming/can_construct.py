@@ -68,7 +68,21 @@ def can_construct_memo(target, word_bank, memo=dict()):
 
     return False
 
+
+def can_construct_tab(target, word_bank):
+    length = len(target)
+    table = [False] * (length+1)
+    table[0] = True
     
+
+    for index in range(length+1):
+        if table[index]:
+            for word in word_bank:
+                offset = len(word)
+                if target[index:index+offset] == word:
+                    table[index+offset] = True
+
+    return table[length]
     
 
 
