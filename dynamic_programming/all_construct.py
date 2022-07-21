@@ -62,8 +62,12 @@ def all_construct_tab(target, word_bank):
             for word in word_bank:
                 offset = len(word)
                 if word == target[index:index+offset]:
-                    ways = [[*way,word] for way in table[index]]
+
+                    # for way in table[index]:
+                    #     new_way = way + [word]
+                    #     ways.append(new_way)
+
+                    ways = [way + [word] for way in table[index]]
                     table[index+len(word)].extend(ways)
-                    # table[index+offset] = table[index][:] + [word]
     
     return table[-1]
